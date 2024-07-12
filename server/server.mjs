@@ -61,25 +61,6 @@ app.use(adminRout);
 app.use(adminLoginRout);
 ///////////////
 
-/* app.get("/api/user", async (req, res) => {
-  const allUser = await User.find();
-  return res.status(200).json(allUser);
-}); */
 
-//////// listening to server
-
-/* clientID:
-"23132053156-ghvrhpcj2bi4k4gk5pbb6fju1u3i4oqi.apps.googleusercontent.com",
-clientSecret: "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",
-callbackURL: "http://localhost:5000/api/user/googleCallback",
-passReqToCallback: true,
-},
-async (req, accessToken, refreshToken, profile, done) => {
-const defaultUser = {
-fullName: `${profile.name.givenName} ${profile.name.familyName}`,
-email: profile.emails[0].value,
-picture: profile.photos[0].value,
-googleId: profile.id,
-}; */
 
 // database mongodb+srv://Dauda:<password>@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz
