@@ -14,10 +14,9 @@ import cookieParser from "cookie-parser";
 import googleRout from "./google-OAUTH/google-user/google-user.mjs";
 import discordRout from "./users/DISCORD/discord-user/discord-user.mjs";
 import cors from "cors";
-import dotenv from "dotenv";
-dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = 5000;
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "https://my-quiz-app-1.onrender.com", credentials: true }));
