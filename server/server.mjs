@@ -14,12 +14,13 @@ import cookieParser from "cookie-parser";
 import googleRout from "./google-OAUTH/google-user/google-user.mjs";
 import discordRout from "./users/DISCORD/discord-user/discord-user.mjs";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
-
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "https://my-quiz-app-1.onrender.com", credentials: true }));
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(cookieParser("daverich"));
 
 ////////////////
@@ -61,7 +62,5 @@ app.use(discordRout);
 app.use(adminRout);
 app.use(adminLoginRout);
 ///////////////
-
-
 
 // database mongodb+srv://Dauda:<password>@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz

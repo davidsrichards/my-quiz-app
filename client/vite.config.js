@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     proxy: {
-      "/api/user": "https://my-quiz-app-hmgy.onrender.com",
+      "/api/user": "http://localhost:5000",
     },
   },
   plugins: [react()],

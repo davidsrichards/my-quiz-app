@@ -6,9 +6,9 @@ const googleRout = express.Router();
 
 ///// URLS
 
-const failureMessage = "https://my-quiz-app-1.onrender.com/google/login/error";
-const successRedirect = "https://my-quiz-app-1.onrender.com/google/login/success";
-const failureRedirect = "https://my-quiz-app-1.onrender.com/failure";
+const failureMessage = "http://localhost:5173/login/error";
+const successRedirect = "http://localhost:5173/google/login/success";
+const failureRedirect = "http://localhost:5173/failure";
 
 /// verification
 
