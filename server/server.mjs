@@ -16,9 +16,13 @@ import discordRout from "./users/DISCORD/discord-user/discord-user.mjs";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
+import path from "path";
+const dirname = path.dirname(new URL(import.meta.url).pathname);
+const base = path.resolve("../client", "dist", "index.html");
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(cookieParser("daverich"));
@@ -26,9 +30,7 @@ app.use(cookieParser("daverich"));
 ////////////////
 
 mongoose
-  .connect(
-    "mongodb+srv://Dauda:323395ppP@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz"
-  )
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(PORT, () => console.log(`start listening on port : ${PORT}`));
     console.log("Connected to data base");
@@ -52,6 +54,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static(path.resolve("../client", "dist")));
 
 app.use(getRout);
 app.use(regRout);
@@ -61,6 +64,10 @@ app.use(googleRout);
 app.use(discordRout);
 app.use(adminRout);
 app.use(adminLoginRout);
+
+app.get("*", (req, res) => {
+  res.sendFile(base);
+});
 ///////////////
 
 // database mongodb+srv://Dauda:<password>@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz
