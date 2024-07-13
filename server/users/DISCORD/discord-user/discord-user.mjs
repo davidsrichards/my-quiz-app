@@ -7,9 +7,9 @@ const discordRout = express.Router();
 ////// sending request to discord
 discordRout.get("/api/user/discord/login", passport.authenticate("discord"));
 /////  getting respond from discord
-const failureMessage = "http://localhost:5173/google/login/error";
-const successRedirect = "http://localhost:5173/google/login/success";
-const failureRedirect = "http://localhost:5173/google/login/failure";
+const failureMessage = "https://my-quiz-app-1.onrender.com/google/login/error";
+const successRedirect = "https://my-quiz-app-1.onrender.com/google/login/success";
+const failureRedirect = "https://my-quiz-app-1.onrender.com/google/login/failure";
 discordRout.get(
   "/api/discord/redirect",
   passport.authenticate("discord", {
