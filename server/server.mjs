@@ -17,10 +17,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "https://my-quiz-app-1.onrender.com", credentials: true }));
 app.use(cookieParser("daverich"));
 
 ////////////////
@@ -30,7 +30,7 @@ mongoose
     "mongodb+srv://Dauda:323395ppP@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz"
   )
   .then(() => {
-    app.listen(PORT, () => console.log(`start listening on port : ${PORT}`));
+   
     console.log("Connected to data base");
   })
   .catch((err) => console.log(err));
@@ -62,5 +62,7 @@ app.use(discordRout);
 app.use(adminRout);
 app.use(adminLoginRout);
 ///////////////
+
+ app.listen(port, () => console.log(`start listening on port : ${port}`));
 
 // database mongodb+srv://Dauda:<password>@quiz.cdpitay.mongodb.net/?retryWrites=true&w=majority&appName=Quiz
