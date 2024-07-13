@@ -24,7 +24,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: "https://my-quiz-app-1.onrender.com", credentials: true }));
+//app.use(cors({ origin: "https://my-quiz-app-1.onrender.com", credentials: true }));
 app.use(cookieParser("daverich"));
 
 ////////////////
